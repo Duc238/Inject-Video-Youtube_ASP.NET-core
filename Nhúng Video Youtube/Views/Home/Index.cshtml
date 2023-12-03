@@ -1,0 +1,29 @@
+﻿<title>Maragret Wang - Vương Vũ Tiệp</title>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<h1>Thật muốn biết cảm giác của anh - Vương Vũ Tiệp</h1>
+<body>
+    <div>
+        <p>Bài hát này được ca sĩ Maragret Wang - Vương Vũ Tiệp cover lại và quay MV</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/68pshUwsfxg?si=tqyZI30nPM2SToCF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br />
+        <button id="navigateBtn" class="btn btn-outline-primary">Liên hệ với chúng tôi</button>
+    </div>
+    <script>
+        document.getElementById('navigateBtn').addEventListener('click', function () {
+            // Sử dụng pushState để thay đổi URL mà không làm tải lại trang
+            history.pushState(null, null, '/Home/About');
+
+            // Thực hiện chuyển hướng đến trang About
+            loadPage('/Home/About');
+        });
+        function loadPage(url) {
+            // Sử dụng fetch hoặc AJAX để tải nội dung của trang mới
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Hiển thị nội dung của trang mới
+                    document.body.innerHTML = data;
+                })
+                .catch(error => console.error(error));
+        }
+    </script>
+</body>
